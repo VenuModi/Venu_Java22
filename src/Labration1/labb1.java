@@ -1,5 +1,6 @@
 package src.Labration1;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Labb1 {
@@ -11,6 +12,12 @@ class Labb1 {
         new Labb1().meny();
     }
 
+    /*
+     Denna del låter användaren välja olika alternativ.
+
+     Om användaren väljer alternativ som inte finns i menyn ger den en varning om att välja alternativ
+     från den angivna menyn istället för att krascha.
+     */
     public void meny() {
         while (true) {
             System.out.println("\nVälj ett alternativ från menyn");
@@ -42,13 +49,16 @@ class Labb1 {
                     System.out.println("Programmet har avslutats");
                     return;
                 default:
-                    System.out.println("Varning!!Välj från följande alternativ.");
+                    System.out.println("Varning!! Välj från följande alternativ.");
                     break;
             }
 
         }
     }
 
+    /*
+     Detta är det första alternativet i menyn som låter användaren fylla i priserna för olika tidsperioder.
+     */
     public void inmatning() {
         System.out.println("Du har valt Inmatning. Mata in prier för olika tider.");
 
@@ -68,6 +78,11 @@ class Labb1 {
         }
     }
 
+    /*
+    Detta alternativ ger användaren lägsta, högsta och genomsnittliga priser som han tidigare angett
+    alternativ 1.
+     Om användaren direkt hoppar till alternativ 2 blir värdena 0.
+     */
     public void minMaxMedel() {
         int max = pris[0];
         int min = pris[0];
@@ -94,26 +109,40 @@ class Labb1 {
         System.out.println("Det här är medel värdet " + avr + "öre Kwh/h");
     }
 
-    public void sortering() {
-        for (int i = 0; i < pris.length - 1; i++) {
-            for (int j = 0; j < pris.length - i - 1; j++) {
-                if (pris[j] > pris[j + 1]) {
-                    //swap
-                    int temp = pris[j];
-                    pris[j] = pris[j + 1];
-                    pris[j + 1] = temp;
+    /*
+    Vi kopierar listan från våra deklarerade variabler (pris & timme) till en lokal variabel.
+    Genom att göra detta förhindrar vi att den deklarerade variabeln sorteras och därför är originaldata intakt.
 
-                    String temp2 = timme[j];
-                    timme[j] = timme[j + 1];
-                    timme[j + 1] = temp2;
+    Denna metod sorterar ut alla dessa priser från lägsta till högsta och med motsvarande tid.
+    */
+    public void sortering() {
+
+        int[] sorteradPris = Arrays.copyOf(pris, pris.length);
+        String[] sorteradTid = Arrays.copyOf(timme, timme.length);
+        for (int i = 0; i < sorteradPris.length - 1; i++) {
+            for (int j = 0; j < sorteradPris.length - i - 1; j++) {
+                if (sorteradPris[j] > sorteradPris[j + 1]) {
+                    //swap
+                    int temp = sorteradPris[j];
+                    sorteradPris[j] = sorteradPris[j + 1];
+                    sorteradPris[j + 1] = temp;
+
+                    String temp2 = sorteradTid[j];
+                    sorteradTid[j] = sorteradTid[j + 1];
+                    sorteradTid[j + 1] = temp2;
                 }
             }
         }
-        for (int i = 0; i < pris.length; i++) {
-            System.out.format("%s: %d%n", timme[i], pris[i]);
+        for (int i = 0; i < sorteradPris.length; i++) {
+            System.out.format("%s: %d%n", sorteradTid[i], sorteradPris[i]);
         }
     }
 
+    /*
+    Med den här metoden tar vi reda på de bästa 4 timmarna för att ladda din elbil.
+    Fyndet görs från de priser som användaren angett i alternativ 1 för att få den billigaste totalsumman
+    4 timmar i följd.
+     */
     public void bastaLaddningsTid() {
         double tempSum = Double.MAX_VALUE;
 
