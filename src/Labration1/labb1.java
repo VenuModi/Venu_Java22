@@ -8,13 +8,12 @@ class Labb1 {
     String[] timme = new String[24];
 
     public static void main(String[] args) {
-//        String userChoice;
         new Labb1().meny();
     }
 
     public void meny() {
         while (true) {
-            System.out.println("Välj ett alternativ från menyn");
+            System.out.println("\nVälj ett alternativ från menyn");
 
             System.out.println("  Elpriser");
             System.out.println("--------------");
@@ -40,8 +39,8 @@ class Labb1 {
                     bastaLaddningsTid();
                     break;
                 case "e":
-                    System.out.println("Terminated");
-                    break;
+                    System.out.println("Programmet har avslutats");
+                    return;
                 default:
                     System.out.println("Varning!!Välj från följande alternativ.");
                     break;
@@ -96,17 +95,15 @@ class Labb1 {
     }
 
     public void sortering() {
-        int temp = 0;
-        String temp2 = "";
         for (int i = 0; i < pris.length - 1; i++) {
             for (int j = 0; j < pris.length - i - 1; j++) {
                 if (pris[j] > pris[j + 1]) {
                     //swap
-                    temp = pris[j];
+                    int temp = pris[j];
                     pris[j] = pris[j + 1];
                     pris[j + 1] = temp;
 
-                    temp2 = timme[j];
+                    String temp2 = timme[j];
                     timme[j] = timme[j + 1];
                     timme[j + 1] = temp2;
                 }
@@ -119,16 +116,15 @@ class Labb1 {
 
     public void bastaLaddningsTid() {
         double tempSum = Double.MAX_VALUE;
-        ;
+
         System.out.println("Bästa fyra laddnings tid är:");
         String laddTid = "";
         String laddTid2 = "";
         String laddTid3 = "";
         String laddTid4 = "";
-        double fyraBastaPriser = 0;
 
         for (int i = 0; i < pris.length - 4; i++) {
-            fyraBastaPriser = pris[i] + pris[i + 1] + pris[i + 2] + pris[i + 3];
+            double fyraBastaPriser = pris[i] + pris[i + 1] + pris[i + 2] + pris[i + 3];
             if (fyraBastaPriser < tempSum) {
                 tempSum = fyraBastaPriser;
 
@@ -141,12 +137,6 @@ class Labb1 {
         System.out.println(laddTid + "," + laddTid2 + "," + laddTid3 + "," + laddTid4);
         System.out.println("Totalla priset under dessa fyra timmar är : " + tempSum + "öre Kwh/h");
         System.out.println("Medelvärde för dessa timmarna är : " + tempSum / 4 + "öre Kwh/h");
-
-    }
-
-
-    public void avsluta() {
-        System.out.println("Programmet har avslutat.");
 
     }
 }
