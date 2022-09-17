@@ -58,6 +58,7 @@ class Labb1 {
 
     /*
      Detta är det första alternativet i menyn som låter användaren fylla i priserna för olika tidsperioder.
+     Skulle användaren skriva bokstav eller en char så kommer programmet att krasha.
      */
     public void inmatning() {
         System.out.println("Du har valt Inmatning. Mata in prier för olika tider.");
@@ -119,6 +120,7 @@ class Labb1 {
 
         int[] sorteradPris = Arrays.copyOf(pris, pris.length);
         String[] sorteradTid = Arrays.copyOf(timme, timme.length);
+
         for (int i = 0; i < sorteradPris.length - 1; i++) {
             for (int j = 0; j < sorteradPris.length - i - 1; j++) {
                 if (sorteradPris[j] > sorteradPris[j + 1]) {
@@ -133,6 +135,7 @@ class Labb1 {
                 }
             }
         }
+
         for (int i = 0; i < sorteradPris.length; i++) {
             System.out.format("%s: %d%n", sorteradTid[i], sorteradPris[i]);
         }
