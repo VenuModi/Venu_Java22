@@ -1,0 +1,247 @@
+{
+  "Cars": [
+    {
+      "Product Code": "01",
+      "Name": "Acura RDX",
+      "Brand": "Honda",
+      "Type": "Crossover",
+      "Price": "454300.00"
+    },
+    {
+      "Product Code": "02",
+      "Name": "Audi A6",
+      "Brand": "Volkswagen Group",
+      "Type": "Sedan",
+      "Price": "449400.00"
+    },
+    {
+      "Product Code": "03",
+      "Name": "Bentley EWB Azure",
+      "Brand": "Bentley Motors",
+      "Type": "SUV",
+      "Price": "294875.41"
+    },
+    {
+      "Product Code": "04",
+      "Name": "KIA Creed",
+      "Brand": "Hyundai Motor Company",
+      "Type": "Hatchback",
+      "Price": "233900"
+    },
+    {
+      "product Code": "05",
+      "Name": "Audi Q5",
+      "Brand": "Volkswagen Group ",
+      "Type": "SUV",
+      "Price": "498700"
+    },
+    {
+      "Product Code": "06",
+      "Name": "BMW 5-Serie",
+      "Brand": "Bayerische Motoren Werke AG",
+      "Type": "Sedan",
+      "Price": "466158"
+    },
+    {
+      "Product Code": "07",
+      "Name" : "Hyundai Accent",
+      "Brand": "Hyundai Motor Company",
+      "Type": "Sedan",
+      "Price": "214856.46"
+    },
+    {
+      "Product Code": "08",
+      "Name" : "Nissan Versa",
+      "Brand" : "Nissan Motor Co., Ltd",
+      "Type": "Sedan",
+      "Price" : "163217.55"
+    },
+    {
+      "Product Code" : "09",
+      "Name" : "Honda Civic",
+      "Brand": "Honda Motor Co., Ltd",
+      "Type": "Sedan",
+      "Price" : "250900"
+    },
+    {
+      "Product Code" : "10",
+      "Name": "Land Rover Discovery Sport",
+      "Brand": "Land Rover",
+      "Type": "SUV",
+      "Price": "610900"
+    },
+    {
+      "Product Code" : "11",
+      "Name": "BMW X3",
+      "Brand" : "Bayerische Motoren Werke AG",
+      "Type": "SUV",
+      "Price": "443875"
+    },
+    {
+      "Product Code" : "12",
+      "Name" : "Jaguar F-Pace",
+      "Brand": "Jaguar Land Rover",
+      "Type": "SUV",
+      "Price" : "728900"
+    },
+    {
+      "Product Code" : "13",
+      "Name" : "Kia Stinger",
+      "Brand" : "Hyundai Motor Company",
+      "Type": "Hatchback",
+      "Price": "514900"
+    },
+    {
+      "Product Code": "14",
+      "Name" : "Polestar 2",
+      "Brand" : "Volvo Cars",
+      "Type": "Hatchback",
+      "Price" : "519000"
+    },
+    {
+      "Product Code" : "15",
+      "Name" : "Mercedes AMG EQS",
+      "Brand" : "Mercedes Benz AG",
+      "Type": "Hatchback",
+      "Price" : "1740000"
+    },
+    {
+      "Product Code": "16",
+      "Name" : "Tesla Model 5",
+      "Brand" : "Tesla Inc.",
+      "Type": "Hatchback",
+      "Price" : "1000000"
+    },
+    {
+      "Product Code" : "17",
+      "Name" : "Hyundai Tucson",
+      "Brand" : "Hyundai Motor Company",
+      "Type": "Crossover",
+      "Price" : "289900"
+    },
+    {
+      "Product Code": "18",
+      "Name" : "Mazda CX-5",
+      "Brand" : "Mazda Motor Corporation",
+      "Type": "Crossover",
+      "Price" : "325400"
+    },
+    {
+      "Product Code" : "19",
+      "Name" : "Kia Telluride",
+      "Brand" : "Hyundai Motor Company",
+      "Type": "Crossover",
+      "Price" : "380840.95"
+    },
+    {
+      "Product Code" : "20",
+      "Name" : "Ford Bronco Sport",
+      "Brand" : "Ford Motor Company",
+      "Type": "Crossover",
+      "Price" : "500000"
+    }
+  ],
+  "Trucks": [
+    {
+      "Product Code" : "A001",
+      "Name" : "Toyota Hilux",
+      "Brand" : "Toyota Motor Corporation",
+      "Type": "Pick-up Truck",
+      "Price" : "308900"
+    },
+    {
+      "Product Code" : "A002",
+      "Name" : "Ford Ranger",
+      "Brand" : "Ford Motor Company",
+      "Type": "Pick-up Truck",
+      "Price" : "287025"
+    },
+    {
+      "product Code" : "A003",
+      "Name" : "Isuzu D-Max",
+      "Brand" : "Isuzu Motors Ltd.",
+      "Type": "Pick-up Truck",
+      "Price" : "393627"
+    },
+    {
+      "Product Code" : "A004",
+      "Name" : "Mitsubishi L200",
+      "Brand" : "Mitsubishi Motors",
+      "Type": "Pick-up Truck",
+      "Price" : "233784"
+    },
+    {
+      "Product Code" : "A005",
+      "Name" : "Mercedes Benz Sprinter",
+      "Brand" : "Mercedes Benz AG",
+      "Type": "Chiller Trucks",
+      "Price" : "349900"
+    },
+    {
+      "Product Code" : "A006",
+      "Name" : "Nissan NV200",
+      "Brand" : "Nissan Motor Co.",
+      "Type": "Chiller Trucks",
+      "Price" : "219800"
+    },
+    {
+      "Product Code" : "A007",
+      "Name" : "RAM ProMaster",
+      "Brand" : "Flat Chrysler Automobiles",
+      "Type": "Furniture Truck",
+      "Price" : "274118.43"
+    },
+    {
+     "Product Code" : "A008",
+      "Name": "Nissan NV",
+      "Brand" : "Nissan Motor Co.",
+      "Type": "Furniture Truck",
+      "Price" : "214896"
+    }
+  ],
+  "Caravans":
+  [
+    {
+      "Product Code" : "LT-1A",
+      "Name" : "ADRIA",
+      "Brand" : "Adria Mobil",
+      "Type": "Conventional Caravan",
+      "Price" : "782100"
+    },
+    {
+      "Product Code" : "LT-2A",
+      "Name" : "BAILEY",
+      "Brand" : "Bailey of Bristol UK",
+      "Type": "Conventional Caravan",
+      "Price" : "387804.70"
+    },
+    {
+      "Product Code" : "LT-3A",
+      "Name" : "COACHMAN",
+      "Brand" : "Coachman Caravans Company Limited",
+      "Type": "Conventional Caravan",
+      "Price" : "320559.27"
+    },
+    {
+      "Product Code" : "LT-4A",
+      "Name" : "Adria Twin Sports 640 SG",
+      "Brand" : "Adria Mobil",
+      "Type": "Motorhomes",
+      "Price" : "750609.86"
+    },
+    {
+      "Product Code" : "LT-5A",
+      "Name" : "Chausson 660 Exclusive Line",
+      "Brand" : "Groupe Trigano",
+      "Type": "Motorhomes",
+      "Price"  : "750547.82"
+    },
+    {
+      "Product Code" : "LT-6A",
+      "Name" : "Bailey Autograph 81-6",
+      "Brand" : "Bailey of Bristol UK",
+      "Type": "Motorhomes",
+      "Price" : "942980.39"
+    }
+  ]
+}
