@@ -1,102 +1,18 @@
 package Labbration2;
 
-import jdk.jfr.Category;
-import org.json.simple.JSONObject;
-import org.json.simple.JSONArray;
-import org.json.simple.parser.JSONParser;
-import org.json.JSONException;
-import org.json.simple.parser.ParseException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Scanner;
+import java.io.File;
+import java.util.*;
+import java.util.stream.Stream;
 
 public class Cars {
     static Scanner sc = new Scanner(System.in);
-    static JSONParser parser = new JSONParser();
+
     public static void main(String[] args) {
-
-
         Menu();
-//        ReadJsonFile();
-//        WriteToJsonFile();
     }
 
-    private static void WriteToJsonFile() {
-        Map<String, String> myMap = new HashMap<>();
-
-        System.out.print("Enter the Product Code: ");
-        String productCode = sc.next();
-        myMap.put("ProductCode", productCode);
-
-        System.out.print("Enter the name of the product: ");
-        String name = sc.next();
-        myMap.put("Name", name);
-
-        System.out.print("Enter the brand of the product: ");
-        String brand = sc.next();
-        myMap.put("Brand", brand);
-
-        System.out.print("Enter the category of the product: ");
-        String category = sc.next();
-        myMap.put("Category", category);
-
-        System.out.print("Enter the price of the product: ");
-        String price = sc.next();
-        myMap.put("Price", price);
-
-        try {
-            FileWriter fileWriter = new FileWriter("C:\\Users\\VenuModi\\IdeaProjects\\iths_java22_venu\\src\\Labbration2\\cars.json");
-            JSONObject jsonObject = new JSONObject(myMap);
-            System.out.println(jsonObject);
-            fileWriter.write(jsonObject.toString());
-            fileWriter.close();
-        } catch (JSONException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    private static void ReadJsonFile() {
-        try {
-            Object obj = parser.parse(new FileReader("\\C:\\Users\\VenuModi\\IdeaProjects\\iths_java22_venu\\src\\Labbration2\\cars.json"));
-            JSONObject jsonObject = (JSONObject) obj;
-
-            JSONArray cars = (JSONArray) jsonObject.get("Cars");
-            JSONArray trucks = (JSONArray) jsonObject.get("Trucks");
-            JSONArray carvans = (JSONArray) jsonObject.get("Caravans");
-
-            Iterator iterateCars = cars.iterator();
-            Iterator iterateTrucks = trucks.iterator();
-            Iterator iterateCaravans = carvans.iterator();
-
-            System.out.println("\n========== Cars ==========");
-            while (iterateCars.hasNext()) {
-                System.out.println(iterateCars.next());
-            }
-            System.out.println("\n========== Trucks ==========");
-            while (iterateTrucks.hasNext()){
-                System.out.println(iterateTrucks.next());
-            }
-            System.out.println("\n========== Caravans ==========");
-            while (iterateCaravans.hasNext()){
-                System.out.println(iterateCaravans.next());
-            }
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-
-    private static void Category(){
-
-    }
 
     private static void Menu() {
         while (true) {
@@ -116,12 +32,134 @@ public class Cars {
                 case "2":
                     WriteToJsonFile();
                     break;
-                case "3":
-                    Category();
-                    break;
                 default:
                     System.out.println("Warning!!" + " Please select options from the menu above.");
             }
         }
+    }
+    private static void WriteToJsonFile() {
+
+    }
+    private static void ReadJsonFile() {
+        while (true) {
+            try {
+                ObjectMapper objectMapper = new ObjectMapper();
+
+                List<carProduct> veh = Arrays.asList(objectMapper.readValue(new File("src/Labbration2/cars.json"), carProduct[].class));
+                System.out.println("\n Choose an option");
+                System.out.println("================");
+                System.out.println("1. Read Catalogue");
+                System.out.println("2. Filter price");
+                System.out.println("3. Filter inventory balance");
+                System.out.println("4. Filter car types");
+                System.out.println("B. Back");
+                String subMenu = sc.next().toLowerCase();
+
+                switch (subMenu) {
+                    case "1":
+                        readCatalogue(veh);
+                        break;
+                    case "2":
+                        sortByPrice(veh);
+                        break;
+                    case "3":
+                        inventoryDetails(veh);
+                        break;
+                    case "4":
+                        filterByCarType(veh);
+                        break;
+                    case "b":
+                        Menu();
+                        break;
+                    default:
+                        System.out.println("Warning!!" + " Please select options from the menu above.");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    private static void readCatalogue(List<carProduct> veh) {
+        veh
+            .forEach(v -> System.out.println(
+                    v.getProductCode() + " | "
+                    + v.getName() + " | "
+                    + v.getType() + " | "
+                    + v.getBrand() + " | "
+                    + v.getPrice() + " | "
+                    + v.getCategory()));
+    }
+
+
+    private static void sortByPrice(List<carProduct> veh) {
+        System.out.println("Enter 'h' to sort from highest to lowest prices.");
+        System.out.println("Enter 'l' to sort from lowest prices.");
+        System.out.println("Enter 'r' to filter with price interval.");
+        String priceChoice = sc.next();
+
+        // Filtering from highest to lowest
+        if (priceChoice.equals("h")) {
+            Stream<carProduct> sortedListHighLow = veh.stream()
+                    .sorted(Comparator.comparingDouble(carProduct::getPrice).reversed());
+            sortedListHighLow.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
+        } else if (priceChoice.equals("l")) {
+            //Filtering from lowest to highest
+            Stream<carProduct> sortedListLowHigh = veh.stream()
+                    .sorted(Comparator.comparingDouble(carProduct::getPrice));
+            sortedListLowHigh.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
+        } else if (priceChoice.equals("r")) {
+            System.out.println("\n Filter by price range, give a minPrice and maxPrice.");
+            int minPrice = sc.nextInt();
+            int maxPrice = sc.nextInt();
+
+            List<carProduct> results = new ArrayList<>();
+            veh.stream().filter(p -> p.getPrice() > minPrice && p.getPrice() < maxPrice).forEach(results::add);
+
+            results.forEach(v -> System.out.println(v.getName() + " : " + v.getPrice()));
+        } else {
+            System.out.println("Choose a valid option from the menu");
+        }
+    }
+
+
+    private static void inventoryDetails(List<carProduct> veh) {
+
+        Stream<carProduct> brand = veh.stream()
+                .sorted(Comparator.comparing(carProduct::getBrand));
+        brand.forEach(v -> System.out.println(v.getBrand()));
+
+        System.out.println("For which brand is inventory required?");
+        sc.nextLine();
+        String brandName = sc.nextLine();
+
+        System.out.println(brandName);
+
+        Stream<carProduct> carName = veh.stream()
+                .sorted(Comparator.comparing(carProduct::getName))
+                .filter(v -> v.getBrand().equals(brandName));
+
+        carName.forEach(v -> System.out.println(v.getName() + " : " + v.getInventory()));
+
+    }
+
+
+    private static void filterByCarType(List<carProduct> veh) {
+        Stream<carProduct> type = veh.stream()
+                .sorted(Comparator.comparing(carProduct::getType));
+        type.forEach(v -> System.out.println(v.getType()));
+
+        System.out.println("Select the car type.");
+        sc.nextLine();
+        String carType = sc.nextLine();
+
+        System.out.println(carType);
+
+        Stream<carProduct> carNameType = veh.stream()
+                .sorted(Comparator.comparing(carProduct::getType))
+                .filter(v -> v.getType().equals(carType));
+
+        carNameType.forEach(v -> System.out.println(v.getName() + " | " + v.getType() + " | " + v.getPrice()));
+
     }
 }

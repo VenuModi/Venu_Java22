@@ -4,8 +4,12 @@ public class carProduct {
     private String name;
     private double price;
     private String brand;
+    private String type;
+    private int productCode;
+    private int inventory;
     private String category;
-    private int prodcutCode;
+
+
 
     public String getName() {
         return name;
@@ -31,21 +35,31 @@ public class carProduct {
         this.brand = brand;
     }
 
-    public String getCategory() {
-        return category;
+    public String getType() {
+        return type;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public int getProdcutCode() {
-        return prodcutCode;
+    public int getProductCode() {
+        return productCode;
     }
 
-    public void setProdcutCode(int prodcutCode) {
-        this.prodcutCode = prodcutCode;
+    public void setProdcutCode(int productCode) {
+        this.productCode = productCode;
     }
 
+    public int getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
+    }
+    public String getCategory() {return category;}
+
+    public void setCategory(String category) {this.category = category;}
 
 }
