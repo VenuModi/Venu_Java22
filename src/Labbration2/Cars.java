@@ -109,27 +109,28 @@ public class Cars {
         String priceChoice = sc.next();
 
         // Filtering from highest to lowest
-        if (priceChoice.equals("h")) {
-            Stream<carProduct> sortedListHighLow = veh.stream()
-                    .sorted(Comparator.comparingDouble(carProduct::getPrice).reversed());
-            sortedListHighLow.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
-        } else if (priceChoice.equals("l")) {
-            //Filtering from lowest to highest
-            Stream<carProduct> sortedListLowHigh = veh.stream()
-                    .sorted(Comparator.comparingDouble(carProduct::getPrice));
-            sortedListLowHigh.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
-        } else if (priceChoice.equals("r")) {
-            //Sorting with price interval
-            System.out.println("\n Filter by price range, give a minPrice and maxPrice.");
-            int minPrice = sc.nextInt();
-            int maxPrice = sc.nextInt();
-
-            List<carProduct> results = new ArrayList<>();
-            veh.stream().filter(p -> p.getPrice() > minPrice && p.getPrice() < maxPrice).forEach(results::add);
-
-            results.forEach(v -> System.out.println(v.getName() + " : " + v.getPrice()));
-        } else {
-            System.out.println("Choose a valid option from the menu");
+        switch (priceChoice) {
+            case "h" -> {
+                Stream<carProduct> sortedListHighLow = veh.stream()
+                        .sorted(Comparator.comparingDouble(carProduct::getPrice).reversed());
+                sortedListHighLow.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
+            }
+            case "l" -> {
+                //Filtering from lowest to highest
+                Stream<carProduct> sortedListLowHigh = veh.stream()
+                        .sorted(Comparator.comparingDouble(carProduct::getPrice));
+                sortedListLowHigh.forEach(v -> System.out.println(v.getName() + ": " + v.getPrice()));
+            }
+            case "r" -> {
+                //Sorting with price interval
+                System.out.println("\n Filter by price range, give a minPrice and maxPrice.");
+                int minPrice = sc.nextInt();
+                int maxPrice = sc.nextInt();
+                List<carProduct> results = new ArrayList<>();
+                veh.stream().filter(p -> p.getPrice() > minPrice && p.getPrice() < maxPrice).forEach(results::add);
+                results.forEach(v -> System.out.println(v.getName() + " : " + v.getPrice()));
+            }
+            default -> System.out.println("Choose a valid option from the menu");
         }
     }
 
