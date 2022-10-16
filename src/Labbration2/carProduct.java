@@ -9,8 +9,6 @@ public class carProduct {
     private int inventory;
     private String category;
 
-
-
     public String getName() {
         return name;
     }
