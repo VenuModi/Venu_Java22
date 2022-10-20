@@ -42,7 +42,7 @@ public class Cars {
                 case "2" -> WriteToJsonFile();
                 case "3" -> {
                     System.out.println("The program has ended");
-                    return;
+                    System.exit(0);
                 }
                 default -> System.out.println("Warning!!" + " Please select options from the menu above.");
             }
