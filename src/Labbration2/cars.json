@@ -1,0 +1,126 @@
+[
+  {
+    "productCode": 1,
+    "name": "Acura RDX",
+    "brand": "Honda",
+    "type": "Crossover",
+    "inventory" : 20,
+    "price": 454300.00,
+    "category": "Cars"
+  },
+  {
+    "productCode": 2,
+    "name": "Audi A6",
+    "brand": "Volkswagen Group",
+    "type": "Sedan",
+    "inventory" : 5,
+    "price": 449400.00,
+    "category": "Cars"
+  },
+  {
+    "productCode": 3,
+    "name": "Bentley EWB Azure",
+    "brand": "Bentley Motors",
+    "type": "SUV",
+    "inventory" : 4,
+    "price": 294875.41,
+    "category": "Cars"
+  },
+
+
+
+  {
+    "productCode": 4,
+    "name" : "Nissan Versa",
+    "brand" : "Nissan Motor Co., Ltd",
+    "type": "Sedan",
+    "inventory" : 20,
+    "price" : 163217.55,
+    "category": "Cars"
+  },
+
+  {
+    "productCode" : 5,
+    "name": "Land Rover Discovery Sport",
+    "brand": "Land Rover",
+    "type": "SUV",
+    "inventory" : 1,
+    "price": 610900,
+    "category": "Cars"
+  },
+  {
+    "productCode" : 6,
+    "name": "BMW X3",
+    "brand" : "Bayerische Motoren Werke AG",
+    "type": "SUV",
+    "inventory" : 3,
+    "price": 443875,
+    "category": "Cars"
+  },
+  {
+    "productCode" : 7,
+    "name" : "Jaguar F-Pace",
+    "brand": "Jaguar Land Rover",
+    "type": "SUV",
+    "inventory" : 43,
+    "price" : 728900,
+    "category": "Cars"
+  },
+  {
+    "productCode" : 8,
+    "name" : "Kia Stinger",
+    "brand" : "Hyundai Motor Company",
+    "type": "Hatchback",
+    "inventory" : 6,
+    "price": 514900,
+    "category": "Cars"
+  },
+  {
+    "productCode": 9,
+    "name" : "Polestar 2",
+    "brand" : "Volvo Cars",
+    "type": "Hatchback",
+    "inventory" : 6,
+    "price" : 519000,
+    "category": "Cars"
+  },
+  {
+    "productCode" : 10,
+    "name" : "Mercedes AMG EQS",
+    "brand" : "Mercedes Benz AG",
+    "type": "Hatchback",
+    "inventory" : 13,
+    "price" : 1740000,
+    "category": "Cars"
+  },
+  {
+    "productCode": 11,
+    "name" : "Tesla Model 5",
+    "brand" : "Tesla Inc.",
+    "type": "Hatchback",
+    "inventory" : 44,
+    "price" : 1000000,
+    "category": "Cars"
+  },
+
+  {
+    "productCode": 12,
+    "name" : "Mazda CX-5",
+    "brand" : "Mazda Motor Corporation",
+    "type": "Crossover",
+    "inventory" : 4,
+    "price" : 325400,
+    "category": "Cars"
+  },
+
+  {
+    "productCode" : 13,
+    "name" : "Ford Bronco Sport",
+    "brand" : "Ford Motor Company",
+    "type": "Crossover",
+    "inventory" : 2,
+    "price" : 500000,
+    "category": "Cars"
+  }
+
+]
